@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://tts.turkiyeshell.com" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://tts.turkiyeshell.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://tts.turkiyeshell.com">
+      <s:element name="GetCustomerSalesTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_start_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_end_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="department_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoice_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerSalesTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerSalesTransactionResult" type="tns:CUSTOMERSALESTRANSACTIONS" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CUSTOMERSALESTRANSACTIONS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="COUNTOFSALESTRANSACTIONLIST" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LISTOFSALESTRANSACTION" type="tns:ArrayOfSALESTRANSACTIONINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="HelperResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:HelperResultBaseOfDataTable" />
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="HelperResultBaseOfDataTable">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Result">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSALESTRANSACTIONINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SALESTRANSACTIONINFO" nillable="true" type="tns:SALESTRANSACTIONINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SALESTRANSACTIONINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sales_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Card_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Plate_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Viu_type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Transaction_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Retail_outlet_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Retail_outlet_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rtl_otlt_province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fuel_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Vehicle_km" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Unit_price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sales_total_amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sales_vat_amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Invoice_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_Reference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Shell_Reference" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCustomerSalesTransaction_with_rid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_start_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_end_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="department_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoice_number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerSalesTransaction_with_ridResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomerSalesTransaction_with_ridResult" type="tns:CUSTOMERSALESTRANSACTIONS_WITH_RID" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CUSTOMERSALESTRANSACTIONS_WITH_RID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="COUNTOFSALESTRANSACTIONLIST" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LISTOFSALESTRANSACTION" type="tns:ArrayOfSALESTRANSACTIONINFO_WITH_RID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSALESTRANSACTIONINFO_WITH_RID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SALESTRANSACTIONINFO_WITH_RID" nillable="true" type="tns:SALESTRANSACTIONINFO_WITH_RID" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SALESTRANSACTIONINFO_WITH_RID">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Sales_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Card_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Plate_cd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Viu_type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Transaction_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Retail_outlet_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Retail_outlet_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Rtl_otlt_province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fuel_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Group_code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Vehicle_km" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Unit_price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sales_total_amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Sales_vat_amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Invoice_no" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Customer_Reference" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Shell_Reference" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="RID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBranchLimitandSales">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBranchLimitandSalesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBranchLimitandSalesResult" type="tns:GETBRANCHLIMITANDSALESRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETBRANCHLIMITANDSALESRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFBRANCHES" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="RESELLLER_LIMITANDSALES" type="tns:RESELLERLIMITANDSALESINFO" />
+          <s:element minOccurs="0" maxOccurs="1" name="BRANCH_LIMITANDSALES" type="tns:ArrayOfBRANCHLIMITANDSALESINFO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RESELLERLIMITANDSALESINFO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="top_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="distributed_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="remaining_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_monthly_volume" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_monthly_sales" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBRANCHLIMITANDSALESINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BRANCHLIMITANDSALESINFO" nillable="true" type="tns:BRANCHLIMITANDSALESINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BRANCHLIMITANDSALESINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="daily_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="weekly_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="monthly_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="daily_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="weekly_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="monthly_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_monthly_sales" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="branch_status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="monthly_sales_volume" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetBranchLimitandCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="set_limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="daily_limit" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="weekly_limit" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthly_limit" nillable="true" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="set_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="daily_count" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weekly_count" nillable="true" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthly_count" nillable="true" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBranchLimitandCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBranchLimitandCountResult" type="tns:CUSTOMERLIMITANDCOUNTUPDATERESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CUSTOMERLIMITANDCOUNTUPDATERESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCardLimitCountandDays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="department_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCardLimitCountandDaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCardLimitCountandDaysResult" type="tns:GETCARDLIMITDAYANDCOUNTRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETCARDLIMITDAYANDCOUNTRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFCARDS" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CARD_LIMITDAYANDCOUNT" type="tns:ArrayOfCardLimitDayandCountInfo" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCardLimitDayandCountInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CardLimitDayandCountInfo" nillable="true" type="tns:CardLimitDayandCountInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CardLimitDayandCountInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="department_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="viu_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="card_no" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="daily_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="weekly_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="monthly_limit" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="daily_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="weekly_count" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="monthly_count" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="allowed_days" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="card_monthly_sales" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="card_monthly_Sales_liter" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetCardLimitCountandDays">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="set_limit" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="daily_limit" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="weekly_limit" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthly_limit" type="s:decimal" />
+            <s:element minOccurs="1" maxOccurs="1" name="set_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="daily_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="weekly_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="monthly_count" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="set_days" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="allowed_days" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetCardLimitCountandDaysResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetCardLimitCountandDaysResult" type="tns:CARDLIMITUPDATERESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CARDLIMITUPDATERESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SHELL_REFERENCE" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBranchStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_status_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBranchStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBranchStatusResult" type="tns:GETBRANCHSTATUSRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETBRANCHSTATUSRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFBRANCHES" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BRANCH_STATUS" type="tns:ArrayOfBRANCHSTATUSINFO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBRANCHSTATUSINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BRANCHSTATUSINFO" nillable="true" type="tns:BRANCHSTATUSINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BRANCHSTATUSINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="branch_status_code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="branch_status" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="last_update_date" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetBranchStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="branch_status" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetBranchStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetBranchStatusResult" type="tns:SETBRANCHSTATUSRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SETBRANCHSTATUSRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOnlineTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_start_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_end_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineTransactionResult" type="tns:GETONLINETRANSACTIONRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETONLINETRANSACTIONRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFONLINETRANSACTIONS" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LISTOFONLINETRANSACTIONS" type="tns:ArrayOfShell2CustResponseofOnlineTrn" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShell2CustResponseofOnlineTrn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Shell2CustResponseofOnlineTrn" nillable="true" type="tns:Shell2CustResponseofOnlineTrn" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Shell2CustResponseofOnlineTrn">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="retail_outlet_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="retail_outlet_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="retail_outlet_provience" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="transaction_date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="viu_type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="fuel_name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="unit_price" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="volume" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="sales_total_amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="transaction_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reseller_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reseller_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CardNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dept_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dept_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="financial_cust_code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RO_GetOnlineTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_no" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="department_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="RID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_start_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="report_end_dt" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RO_GetOnlineTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RO_GetOnlineTransactionResult" type="tns:RO_GETONLINETRANSACTIONRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RO_GETONLINETRANSACTIONRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFONLINETRANSACTIONS" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LISTOFONLINETRANSACTIONS" type="tns:ArrayOfShell2CustResponseofOnlineTrn" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPlateStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_status_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPlateStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPlateStatusResult" type="tns:GETCARDSTATUSRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETCARDSTATUSRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFCARD" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CARD_STATUS" type="tns:ArrayOfCARDSTATUSINFO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfCARDSTATUSINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="CARDSTATUSINFO" nillable="true" type="tns:CARDSTATUSINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CARDSTATUSINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="card_no" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="card_status_code" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="card_status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SetPlateStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="plate_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_status_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="card_status_reason" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetPlateStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetPlateStatusResult" type="tns:SETCARDSTATUSRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SETCARDSTATUSRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetInvoiceDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user_id" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="branch_code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoice_number" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="invoice_start_date" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="invoice_end_date" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="customer_reference" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoiceDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoiceDetailResult" type="tns:GETINVOICEDETAILRESULT" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="GETINVOICEDETAILRESULT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PROCESSRESULT" type="tns:HelperResult" />
+          <s:element minOccurs="1" maxOccurs="1" name="NUMBEROFINVOICES" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICE" type="tns:ArrayOfINVOICEINFO" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_REFERENCE" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SHELL_REFERENCE" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfINVOICEINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="INVOICEINFO" nillable="true" type="tns:INVOICEINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="INVOICEINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="cust_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="invoice_number" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="invoice_date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="due_date" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="net_amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="vat_amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="total_amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="discount_amount" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="INVOICE_DETAIL" type="tns:ArrayOfINVOICEDETAILINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfINVOICEDETAILINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="INVOICEDETAILINFO" nillable="true" type="tns:INVOICEDETAILINFO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="INVOICEDETAILINFO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="product_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="product_name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="volume" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="net_amount" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCustomerSalesTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerSalesTransaction" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSalesTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerSalesTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSalesTransaction_with_ridSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerSalesTransaction_with_rid" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerSalesTransaction_with_ridSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerSalesTransaction_with_ridResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchLimitandSalesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBranchLimitandSales" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchLimitandSalesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBranchLimitandSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBranchLimitandCountSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBranchLimitandCount" />
+  </wsdl:message>
+  <wsdl:message name="SetBranchLimitandCountSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBranchLimitandCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLimitCountandDaysSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCardLimitCountandDays" />
+  </wsdl:message>
+  <wsdl:message name="GetCardLimitCountandDaysSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCardLimitCountandDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetCardLimitCountandDaysSoapIn">
+    <wsdl:part name="parameters" element="tns:SetCardLimitCountandDays" />
+  </wsdl:message>
+  <wsdl:message name="SetCardLimitCountandDaysSoapOut">
+    <wsdl:part name="parameters" element="tns:SetCardLimitCountandDaysResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBranchStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetBranchStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBranchStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetBranchStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetBranchStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetBranchStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetBranchStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineTransaction" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="RO_GetOnlineTransactionSoapIn">
+    <wsdl:part name="parameters" element="tns:RO_GetOnlineTransaction" />
+  </wsdl:message>
+  <wsdl:message name="RO_GetOnlineTransactionSoapOut">
+    <wsdl:part name="parameters" element="tns:RO_GetOnlineTransactionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPlateStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPlateStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetPlateStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPlateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetPlateStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:SetPlateStatus" />
+  </wsdl:message>
+  <wsdl:message name="SetPlateStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:SetPlateStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoiceDetailResponse" />
+  </wsdl:message>
+  <wsdl:portType name="TTSWebServicesSoap">
+    <wsdl:operation name="GetCustomerSalesTransaction">
+      <wsdl:input message="tns:GetCustomerSalesTransactionSoapIn" />
+      <wsdl:output message="tns:GetCustomerSalesTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerSalesTransaction_with_rid">
+      <wsdl:input message="tns:GetCustomerSalesTransaction_with_ridSoapIn" />
+      <wsdl:output message="tns:GetCustomerSalesTransaction_with_ridSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchLimitandSales">
+      <wsdl:input message="tns:GetBranchLimitandSalesSoapIn" />
+      <wsdl:output message="tns:GetBranchLimitandSalesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchLimitandCount">
+      <wsdl:input message="tns:SetBranchLimitandCountSoapIn" />
+      <wsdl:output message="tns:SetBranchLimitandCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLimitCountandDays">
+      <wsdl:input message="tns:GetCardLimitCountandDaysSoapIn" />
+      <wsdl:output message="tns:GetCardLimitCountandDaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetCardLimitCountandDays">
+      <wsdl:input message="tns:SetCardLimitCountandDaysSoapIn" />
+      <wsdl:output message="tns:SetCardLimitCountandDaysSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchStatus">
+      <wsdl:input message="tns:GetBranchStatusSoapIn" />
+      <wsdl:output message="tns:GetBranchStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchStatus">
+      <wsdl:input message="tns:SetBranchStatusSoapIn" />
+      <wsdl:output message="tns:SetBranchStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineTransaction">
+      <wsdl:input message="tns:GetOnlineTransactionSoapIn" />
+      <wsdl:output message="tns:GetOnlineTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RO_GetOnlineTransaction">
+      <wsdl:input message="tns:RO_GetOnlineTransactionSoapIn" />
+      <wsdl:output message="tns:RO_GetOnlineTransactionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlateStatus">
+      <wsdl:input message="tns:GetPlateStatusSoapIn" />
+      <wsdl:output message="tns:GetPlateStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetPlateStatus">
+      <wsdl:input message="tns:SetPlateStatusSoapIn" />
+      <wsdl:output message="tns:SetPlateStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetail">
+      <wsdl:input message="tns:GetInvoiceDetailSoapIn" />
+      <wsdl:output message="tns:GetInvoiceDetailSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TTSWebServicesSoap" type="tns:TTSWebServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomerSalesTransaction">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetCustomerSalesTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerSalesTransaction_with_rid">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetCustomerSalesTransaction_with_rid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchLimitandSales">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetBranchLimitandSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchLimitandCount">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/SetBranchLimitandCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLimitCountandDays">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetCardLimitCountandDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCardLimitCountandDays">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/SetCardLimitCountandDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchStatus">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetBranchStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchStatus">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/SetBranchStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineTransaction">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetOnlineTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RO_GetOnlineTransaction">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/RO_GetOnlineTransaction" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlateStatus">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetPlateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPlateStatus">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/SetPlateStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetail">
+      <soap:operation soapAction="https://tts.turkiyeshell.com/GetInvoiceDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="TTSWebServicesSoap12" type="tns:TTSWebServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCustomerSalesTransaction">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetCustomerSalesTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerSalesTransaction_with_rid">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetCustomerSalesTransaction_with_rid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchLimitandSales">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetBranchLimitandSales" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchLimitandCount">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/SetBranchLimitandCount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCardLimitCountandDays">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetCardLimitCountandDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCardLimitCountandDays">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/SetCardLimitCountandDays" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBranchStatus">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetBranchStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBranchStatus">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/SetBranchStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineTransaction">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetOnlineTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RO_GetOnlineTransaction">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/RO_GetOnlineTransaction" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlateStatus">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetPlateStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPlateStatus">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/SetPlateStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceDetail">
+      <soap12:operation soapAction="https://tts.turkiyeshell.com/GetInvoiceDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TTSWebServices">
+    <wsdl:port name="TTSWebServicesSoap" binding="tns:TTSWebServicesSoap">
+      <soap:address location="https://tts.turkiyeshell.com/TTS/TTSWebServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="TTSWebServicesSoap12" binding="tns:TTSWebServicesSoap12">
+      <soap12:address location="https://tts.turkiyeshell.com/TTS/TTSWebServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
