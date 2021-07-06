@@ -29,7 +29,8 @@ namespace MusteriCariPortal
 
         protected void btnGiris_Click(object sender, EventArgs e)
         {
-            
+            //32234234234
+
                 ///    ServiceReference1.ServiceSoapClient sr = new ServiceReference1.ServiceSoapClient();
                 //    string deger = sr.Sifre(txtKullaniciAd.Text, txtParola.Text);
                 if (txtKullaniciAd.Text == "" || txtParola.Text == "")
