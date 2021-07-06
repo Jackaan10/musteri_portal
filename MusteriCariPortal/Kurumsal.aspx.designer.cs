@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MusteriCariPortal {
-    
-    
-    public partial class Kurumsal {
-        
+namespace MusteriCariPortal
+{
+
+
+    public partial class Kurumsal
+    {
+
         /// <summary>
         /// ucAna control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::MusteriCariPortal.UserControl_ucAna ucAna;
-        
+
         /// <summary>
         /// txtAdres control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAdres;
-        
+
         /// <summary>
         /// txtIl control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIl;
-        
+
         /// <summary>
         /// txtIlce control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIlce;
-        
+
         /// <summary>
         /// txtpostaKod control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpostaKod;
-        
+
         /// <summary>
         /// txtAdres0 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAdres0;
-        
+
         /// <summary>
         /// txtIl0 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIl0;
-        
+
         /// <summary>
         /// txtIlce0 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIlce0;
-        
+
         /// <summary>
         /// txtpostaKod0 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtpostaKod0;
-        
+
         /// <summary>
         /// lblYetkili control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblYetkili;
-        
+
         /// <summary>
         /// lblMail control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMail;
-        
+
         /// <summary>
         /// lblTelefon control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace MusteriCariPortal {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTelefon;
-        
+
         /// <summary>
         /// LinkButton1 control.
         /// </summary>

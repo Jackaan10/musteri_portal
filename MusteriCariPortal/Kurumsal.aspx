@@ -20,11 +20,7 @@
         <div>
             </br>
         </div>
-        <dx:ASPxPageControl ID="ASPxPageControl1" runat="server" ActiveTabIndex="1" Height="285px" Width="792px">
-            <TabPages>
-                <dx:TabPage Text="Cihaz Gönderim Adresi">
-                    <ContentCollection>
-                        <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+        
                             <table style="height: 133px; width: 571px">
                                 <tr>
                                     <td style="font-weight: 700; width: 179px; height: 104px;">Adres </td>
@@ -57,12 +53,8 @@
                                 </tr>
                                                               
                             </table>
-                        </dx:ContentControl>
-                    </ContentCollection>
-                </dx:TabPage>
-                <dx:TabPage Text="Fatura-Döküm Gönderim Adresi">
-                    <ContentCollection>
-                        <dx:ContentControl runat="server" SupportsDisabledAttribute="True">
+                
+               
                             <table style="height: 133px; width: 571px">
                                 <tr>
                                     <td style="font-weight: 700; width: 179px; height: 104px;">Adres </td>
@@ -93,11 +85,7 @@
                                     <td style="width: 251px">&nbsp;</td>
                                 </tr>
                             </table>
-                        </dx:ContentControl>
-                    </ContentCollection>
-                </dx:TabPage>
-            </TabPages>
-        </dx:ASPxPageControl>
+                   
 
     </div>
     <div style="font-weight: 700">

@@ -48,7 +48,12 @@ h6{
     height:auto;
 }
 
-</style>
+      .auto-style1 {
+          left: -1px;
+          top: 0px;
+      }
+
+  </style>
      
     <title>Hilmi Beken Müşteri Portalı</title>
 </head>
@@ -56,7 +61,7 @@ h6{
    <form method="post" id="form1" runat="server">
        <div class="container">
            <div class="row">
-               <div class="col-md-4 col-md-offset-4">
+               <div class="auto-style1">
                    <div class="login-panel panel panel-default" style="margin-top:40px;height:480px;">
                        <div class="panel-heading" style="background-color:darkgray;color:#fff">
                            <h3 class="panel-title"></h3>
